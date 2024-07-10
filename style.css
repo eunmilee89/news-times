@@ -1,0 +1,95 @@
+.head-line{
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+.head-line svg{
+    width: 430px;
+}
+
+.menus{
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-top: 1px solid #ebebeb;
+    border-bottom: 4px double black;
+}
+
+.menus button{
+    border:none;
+    background: none;
+    margin: 8px;
+}
+
+.menus button:hover{
+   background-color: gainsboro;
+}
+
+.news-img-size{
+    max-width: 100%;
+    max-height: 250px;
+}
+
+.news{
+    border-bottom: 1px solid black;
+    padding: 1em;
+    padding-bottom:1.25em;
+}
+
+.hide{
+    display: none;
+}
+
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.side-menu-list button{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    border:none;
+    background: none;
+  }
+
+.sidenav button:hover {
+    color:#f1f1f1;
+  }
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    border:none;
+    background: none;
+    color: #818181;
+  }
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav button {
+        font-size: 18px;
+    }
+
+    .hide{
+        display: block;
+    }
+}
