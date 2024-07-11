@@ -1,3 +1,7 @@
+body{
+    color: #121212;
+}
+
 .head-line{
     margin-top: 1em;
     display: flex;
@@ -24,7 +28,7 @@
 }
 
 .menus button:hover{
-   background-color: gainsboro;
+   background-color: rgb(240, 240, 240);
 }
 
 .news-img-size{
@@ -37,6 +41,7 @@
     padding: 1em;
     padding-bottom:1.25em;
 }
+
 
 
 .sidenav {
@@ -69,24 +74,80 @@
 
 .sidenav .closebtn {
     position: absolute;
-    top: 0;
+    width: 24px;
+    height: 24px;
+    top: 22px;
     right: 25px;
-    font-size: 36px;
     margin-left: 50px;
     border:none;
     background: none;
     color: #818181;
-  }
+}
 
-@media screen and (max-height: 450px) {
+#input-area{
+    display: none;
+}
+
+.hide{
+    display: none;
+}
+
+nav{
+    display: flex;
+    margin-top: 8px;
+}
+.icon-button{
+    padding-left: 8px;
+}
+
+h2{
+    font-size: 24px;
+    margin-top: 12px;
+}
+
+p{
+    margin-bottom: 8px;
+    color: #525252;
+}
+
+.additional{
+    font-size: 12px;
+    color : #727272;
+}
+
+nav i{
+    cursor: pointer;
+    padding: 8px;
+}
+
+nav i:hover{
+    background-color: rgb(240, 240, 240);
+}
+
+
+@media screen and (max-width: 450px) {
+    .hide{
+        display: block;
+    }
+    
     .sidenav {
         padding-top: 15px;
     }
+
     .sidenav button {
         font-size: 18px;
     }
 
-    .hide{
-        display: block;
+    .menus{
+        display: none;
     }
+
+    .head-line svg{
+        width: 200px;
+    }
+
+    .head-line{
+        margin-top: 8px;
+    }    
+
 }
