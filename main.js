@@ -1,9 +1,10 @@
-const API_KEY = `e63a0ba9a3634e71bd60f43254e6df47`;
-//newsapi_key
+const API_KEY = `e63a0ba9a3634e71bd60f43254e6df47`; //newsapi_key
 let newsList=[];
 let userInput = document.getElementById("search-input");
 const menus = document.querySelectorAll(".menus button");
-menus.forEach(menu=>menu.addEventListener("click",(event)=>getNewsByCategory(event)))
+menus.forEach(menu=>menu.addEventListener("click",(event)=>getNewsByCategory(event)));
+const sideMenu = document.querySelectorAll(".side-menu-list button")
+sideMenu.forEach(menu => menu.addEventListener("click", (event)=> getNewsByCategory(event)));
 
 /* Set the width of the side navigation to 250px */
 function openNav() {
@@ -31,11 +32,26 @@ const openSearchBox = () => {
 }
 
 let url = new URL(`https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines`);
+
 const getNews = async() => {
-    const response = await fetch(url);
-    const data = await response.json();
-    newsList = data.articles;
-    render();
+    try{
+        const response = await fetch(url);
+
+        const data = await response.json();
+        if(response.status === 200){
+            if(data.articles.length === 0){
+                throw new Error("There are no results that match your search");
+            }
+            newsList = data.articles;
+            render();
+        } else {
+            throw new Error(data.message);
+        }
+        
+    }catch (error) {
+        errorRender(error.message);
+    }
+    
 }
 
 const getNewsByCategory= async(event)=> {
@@ -79,6 +95,14 @@ const render = () => {
     
 
     document.getElementById("news-board").innerHTML = newsHTML;
+}
+
+const errorRender = (errorMessage) => {
+    const errorHtml = `<div class="alert alert-danger" role="alert">
+    ${errorMessage}
+    </div>`;
+
+    document.getElementById("news-board").innerHTML = errorHtml;
 }
 
 getLatestNews();
